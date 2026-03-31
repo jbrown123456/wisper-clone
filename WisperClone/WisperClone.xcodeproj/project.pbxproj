@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A1EBF010000000000000001 /* WisperCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0010000000000000001 /* WisperCloneApp.swift */; };
+		7A1EBF010000000000000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1ER0010000000000000002 /* Assets.xcassets */; };
+		7A1EBF010000000000000003 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000001 /* AppModel.swift */; };
+		7A1EBF010000000000000004 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000002 /* AudioCaptureService.swift */; };
+		7A1EBF010000000000000005 /* HotkeyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000003 /* HotkeyMonitor.swift */; };
+		7A1EBF010000000000000006 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000004 /* KeychainStore.swift */; };
+		7A1EBF010000000000000007 /* MenuRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000005 /* MenuRootView.swift */; };
+		7A1EBF010000000000000008 /* MicPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000006 /* MicPermission.swift */; };
+		7A1EBF010000000000000009 /* OpenAIStreamingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000007 /* OpenAIStreamingClient.swift */; };
+		7A1EBF01000000000000000A /* OverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000008 /* OverlayController.swift */; };
+		7A1EBF01000000000000000B /* PCMRingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0020000000000000009 /* PCMRingBuffer.swift */; };
+		7A1EBF01000000000000000C /* RewriteOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER002000000000000000A /* RewriteOrchestrator.swift */; };
+		7A1EBF01000000000000000D /* SpeechTranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER002000000000000000B /* SpeechTranscriptionService.swift */; };
+		7A1EBF01000000000000000E /* TextInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER002000000000000000C /* TextInjector.swift */; };
+		7A1EBF01000000000000000F /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER002000000000000000D /* UserSettings.swift */; };
+		7A1EBF010000000000000010 /* WhisperCLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER002000000000000000E /* WhisperCLI.swift */; };
+		7A1EBF010000000000000011 /* SidebarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000001 /* SidebarModels.swift */; };
+		7A1EBF010000000000000012 /* DesktopRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000002 /* DesktopRootView.swift */; };
+		7A1EBF010000000000000013 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000003 /* HomeView.swift */; };
+		7A1EBF010000000000000014 /* DesktopSectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000004 /* DesktopSectionViews.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A1ER0010000000000000000 /* WisperClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisperClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1ER0010000000000000001 /* WisperCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisperCloneApp.swift; sourceTree = "<group>"; };
+		7A1ER0010000000000000002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A1ER0020000000000000001 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000002 /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000003 /* HotkeyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyMonitor.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000004 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000005 /* MenuRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRootView.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000006 /* MicPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicPermission.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000007 /* OpenAIStreamingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIStreamingClient.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000008 /* OverlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayController.swift; sourceTree = "<group>"; };
+		7A1ER0020000000000000009 /* PCMRingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCMRingBuffer.swift; sourceTree = "<group>"; };
+		7A1ER002000000000000000A /* RewriteOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewriteOrchestrator.swift; sourceTree = "<group>"; };
+		7A1ER002000000000000000B /* SpeechTranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechTranscriptionService.swift; sourceTree = "<group>"; };
+		7A1ER002000000000000000C /* TextInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInjector.swift; sourceTree = "<group>"; };
+		7A1ER002000000000000000D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		7A1ER002000000000000000E /* WhisperCLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperCLI.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000001 /* SidebarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarModels.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000002 /* DesktopRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopRootView.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000004 /* DesktopSectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopSectionViews.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A1EFW010000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A1EGR010000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				7A1EGR010000000000000002 /* WisperClone */,
+				7A1EGR010000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A1EGR010000000000000002 /* WisperClone */ = {
+			isa = PBXGroup;
+			children = (
+				7A1ER0010000000000000001 /* WisperCloneApp.swift */,
+				7A1ER0030000000000000002 /* DesktopRootView.swift */,
+				7A1ER0030000000000000004 /* DesktopSectionViews.swift */,
+				7A1ER0030000000000000003 /* HomeView.swift */,
+				7A1ER0030000000000000001 /* SidebarModels.swift */,
+				7A1ER0020000000000000001 /* AppModel.swift */,
+				7A1ER0020000000000000002 /* AudioCaptureService.swift */,
+				7A1ER0020000000000000003 /* HotkeyMonitor.swift */,
+				7A1ER0020000000000000004 /* KeychainStore.swift */,
+				7A1ER0020000000000000005 /* MenuRootView.swift */,
+				7A1ER0020000000000000006 /* MicPermission.swift */,
+				7A1ER0020000000000000007 /* OpenAIStreamingClient.swift */,
+				7A1ER0020000000000000008 /* OverlayController.swift */,
+				7A1ER0020000000000000009 /* PCMRingBuffer.swift */,
+				7A1ER002000000000000000A /* RewriteOrchestrator.swift */,
+				7A1ER002000000000000000B /* SpeechTranscriptionService.swift */,
+				7A1ER002000000000000000C /* TextInjector.swift */,
+				7A1ER002000000000000000D /* UserSettings.swift */,
+				7A1ER002000000000000000E /* WhisperCLI.swift */,
+				7A1ER0010000000000000002 /* Assets.xcassets */,
+			);
+			path = WisperClone;
+			sourceTree = "<group>";
+		};
+		7A1EGR010000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A1ER0010000000000000000 /* WisperClone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A1ENT010000000000000001 /* WisperClone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A1EXL010000000000000002 /* Build configuration list for PBXNativeTarget "WisperClone" */;
+			buildPhases = (
+				7A1ESP010000000000000001 /* Sources */,
+				7A1EFW010000000000000001 /* Frameworks */,
+				7A1ERP010000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WisperClone;
+			productName = WisperClone;
+			productReference = 7A1ER0010000000000000000 /* WisperClone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A1EPJ010000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					7A1ENT010000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 7A1EXL010000000000000001 /* Build configuration list for PBXProject "WisperClone" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A1EGR010000000000000001;
+			productRefGroup = 7A1EGR010000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A1ENT010000000000000001 /* WisperClone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A1ERP010000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A1EBF010000000000000002 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A1ESP010000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A1EBF010000000000000003 /* AppModel.swift in Sources */,
+				7A1EBF010000000000000004 /* AudioCaptureService.swift in Sources */,
+				7A1EBF010000000000000014 /* DesktopSectionViews.swift in Sources */,
+				7A1EBF010000000000000012 /* DesktopRootView.swift in Sources */,
+				7A1EBF010000000000000005 /* HotkeyMonitor.swift in Sources */,
+				7A1EBF010000000000000013 /* HomeView.swift in Sources */,
+				7A1EBF010000000000000006 /* KeychainStore.swift in Sources */,
+				7A1EBF010000000000000007 /* MenuRootView.swift in Sources */,
+				7A1EBF010000000000000008 /* MicPermission.swift in Sources */,
+				7A1EBF010000000000000009 /* OpenAIStreamingClient.swift in Sources */,
+				7A1EBF01000000000000000A /* OverlayController.swift in Sources */,
+				7A1EBF01000000000000000B /* PCMRingBuffer.swift in Sources */,
+				7A1EBF01000000000000000C /* RewriteOrchestrator.swift in Sources */,
+				7A1EBF010000000000000011 /* SidebarModels.swift in Sources */,
+				7A1EBF01000000000000000D /* SpeechTranscriptionService.swift in Sources */,
+				7A1EBF01000000000000000E /* TextInjector.swift in Sources */,
+				7A1EBF01000000000000000F /* UserSettings.swift in Sources */,
+				7A1EBF010000000000000010 /* WhisperCLI.swift in Sources */,
+				7A1EBF010000000000000001 /* WisperCloneApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7A1EXC010000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7A1EXC010000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		7A1EXC010000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wisper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WisperClone captures your voice to transcribe and rewrite it in English.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "WisperClone uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wisperclone.WisperClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7A1EXC010000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wisper;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WisperClone captures your voice to transcribe and rewrite it in English.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "WisperClone uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wisperclone.WisperClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A1EXL010000000000000001 /* Build configuration list for PBXProject "WisperClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A1EXC010000000000000001 /* Debug */,
+				7A1EXC010000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A1EXL010000000000000002 /* Build configuration list for PBXNativeTarget "WisperClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A1EXC010000000000000003 /* Debug */,
+				7A1EXC010000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A1EPJ010000000000000001 /* Project object */;
+}
