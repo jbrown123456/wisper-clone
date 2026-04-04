@@ -123,7 +123,7 @@ struct PlaceholderPage: View {
         VStack(alignment: .leading, spacing: 20) {
             Image(systemName: icon)
                 .font(.system(size: 44))
-                .foregroundStyle(.secondary)
+                .foregroundStyle(AppTheme.accent)
             Text(title)
                 .font(.largeTitle.weight(.bold))
             Text(subtitle)
@@ -135,9 +135,13 @@ struct PlaceholderPage: View {
                     primaryAction()
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(AppTheme.accent)
             }
             Spacer(minLength: 0)
         }
+        .padding(28)
+        .frame(maxWidth: 680, alignment: .leading)
+        .appCard()
         .padding(28)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
@@ -166,6 +170,28 @@ struct DesktopSettingsView: View {
                 Text("Voice, API, and advanced transcription options from the earlier Wisper build.")
                     .foregroundStyle(.secondary)
 
+                GroupBox("Capture & shortcuts") {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Toggle("Enable voice capture", isOn: Binding(
+                            get: { model.isEnabled },
+                            set: { model.setEnabled($0) },
+                        ))
+                        Toggle("Show floating control", isOn: Binding(
+                            get: { model.showFloatingControlPreference },
+                            set: { model.setShowFloatingControl($0) },
+                        ))
+                        Text("Push and hold Right Option (⌥) to dictate anywhere when capture is on. Release to finish and paste English into the focused field.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text("The floating pill uses the same hold-to-talk gesture: hold the main area, release to finish. Drag the grip on the left to move it.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.vertical, 6)
+                }
+
                 if !saveBanner.isEmpty {
                     Text(saveBanner)
                         .font(.callout)
@@ -175,8 +201,14 @@ struct DesktopSettingsView: View {
                 GroupBox("OpenAI rewrite") {
                     VStack(alignment: .leading, spacing: 10) {
                         TextField("API base URL", text: $baseURL)
+                        Text("Use https://api.openai.com/v1 for OpenAI, or your Wisper engine (e.g. http://127.0.0.1:8765/v1).")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                         TextField("Model", text: $openaiModel)
-                        SecureField("API key (Keychain)", text: $apiKeyDraft)
+                        SecureField("OpenAI API key or engine token (Keychain)", text: $apiKeyDraft)
+                        Text("Direct OpenAI: paste an OpenAI API key. Wisper engine: paste WISPER_ENGINE_TOKEN from the server.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                         TextField("Orchestrator debounce (ms)", text: $debounceMs)
                     }
                     .padding(.vertical, 6)
@@ -206,6 +238,7 @@ struct DesktopSettingsView: View {
                     save()
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(AppTheme.accent)
 
                 Spacer(minLength: 24)
             }

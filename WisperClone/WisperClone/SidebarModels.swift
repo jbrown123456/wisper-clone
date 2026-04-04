@@ -1,5 +1,34 @@
 import Foundation
 
+/// One finished dictation turn (in-memory only; cleared when the app quits).
+struct TranscriptItem: Identifiable, Hashable {
+    let id: UUID
+    let createdAt: Date
+    let sourceLanguageId: String
+    let nativeText: String
+    let englishText: String
+    let injectionOK: Bool
+    let errorMessage: String?
+
+    init(
+        id: UUID = UUID(),
+        createdAt: Date = Date(),
+        sourceLanguageId: String,
+        nativeText: String,
+        englishText: String,
+        injectionOK: Bool,
+        errorMessage: String?,
+    ) {
+        self.id = id
+        self.createdAt = createdAt
+        self.sourceLanguageId = sourceLanguageId
+        self.nativeText = nativeText
+        self.englishText = englishText
+        self.injectionOK = injectionOK
+        self.errorMessage = errorMessage
+    }
+}
+
 /// Maps language ids from [`SourceLanguage`] to locales Whisper / Speech expect.
 enum TranscriptionLocale {
     /// `SFSpeechRecognizer` locale identifier.
@@ -32,6 +61,7 @@ enum TranscriptionLocale {
 /// Left-rail destinations (trimmed product surface).
 enum SidebarSection: String, CaseIterable, Identifiable {
     case home
+    case thisSession
     case dictionary
     case snippets
     case scratchPad
@@ -45,6 +75,7 @@ enum SidebarSection: String, CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .home: return "Home"
+        case .thisSession: return "This session"
         case .dictionary: return "Dictionary"
         case .snippets: return "Snippets"
         case .scratchPad: return "Scratch Pad"
@@ -58,6 +89,7 @@ enum SidebarSection: String, CaseIterable, Identifiable {
     var icon: String {
         switch self {
         case .home: return "house.fill"
+        case .thisSession: return "clock.arrow.circlepath"
         case .dictionary: return "book.fill"
         case .snippets: return "text.badge.plus"
         case .scratchPad: return "note.text"
