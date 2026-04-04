@@ -71,9 +71,13 @@ struct SettingsSheet: View {
 
             Toggle("Use whisper.cpp CLI (otherwise Apple Speech, Spanish)", isOn: $useWhisper)
 
-            TextField("OpenAI API base URL", text: $baseURL)
+            TextField("API base URL", text: $baseURL)
+            Text("OpenAI: https://api.openai.com/v1 — Wisper engine: http://127.0.0.1:8765/v1 (see engine/README.md).")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
             TextField("Model", text: $openaiModel)
-            SecureField("API key (stored in Keychain)", text: $apiKeyDraft)
+            SecureField("OpenAI API key or engine token (Keychain)", text: $apiKeyDraft)
             TextField("Orchestrator debounce (ms)", text: $debounceMs)
 
             TextField("Whisper CLI path", text: $whisperPath)

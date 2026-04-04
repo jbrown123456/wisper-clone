@@ -11,6 +11,11 @@ enum SessionPhase: String, Sendable {
     case outputting
 }
 
+private enum CaptureSessionSource {
+    case hotkey
+    case floater
+}
+
 @MainActor
 final class AppModel: ObservableObject {
     @Published var isEnabled = true
@@ -21,9 +26,12 @@ final class AppModel: ObservableObject {
     @Published var speechAuthorized = false
     @Published var accessibilityTrusted = false
     @Published var lastError: String?
+    @Published var transcriptItems: [TranscriptItem] = []
 
     let keychain = KeychainStore(service: "com.wisperclone.WisperClone")
     let settings = UserSettings()
+    /// Mirrored from `UserSettings.showFloatingControl` for SwiftUI bindings.
+    @Published var showFloatingControlPreference: Bool
 
     private let hotkey = HotkeyMonitor(defaultKeyCode: HotkeyMonitor.defaultPushToTalkKeyCode)
     private var audio: AudioCaptureService?
@@ -39,7 +47,12 @@ final class AppModel: ObservableObject {
     private var firstTokenAt: Date?
     private var finalizeStartedAt: Date?
 
+    private var activeSessionSource: CaptureSessionSource?
+    private var floaterMouseUpMonitors: [Any] = []
+    private var isCaptureFinalizing = false
+
     init() {
+        showFloatingControlPreference = settings.showFloatingControl
         orchestrator.onPartialEnglish = { [weak self] text in
             Task { @MainActor in
                 self?.onEnglishDelta(text)
@@ -58,10 +71,10 @@ final class AppModel: ObservableObject {
             }
         }
         hotkey.onSessionBegan = { [weak self] in
-            Task { @MainActor in self?.handleSessionBegan() }
+            Task { @MainActor in self?.handleSessionBegan(source: .hotkey) }
         }
         hotkey.onSessionFinalized = { [weak self] in
-            Task { @MainActor in self?.handleSessionFinalized() }
+            Task { @MainActor in self?.handleSessionFinalized(expectedSource: .hotkey) }
         }
 
         refreshPermissions()
@@ -93,13 +106,49 @@ final class AppModel: ObservableObject {
         }
     }
 
-    private func handleSessionBegan() {
+    func setShowFloatingControl(_ visible: Bool) {
+        settings.showFloatingControl = visible
+        showFloatingControlPreference = visible
+        FloatingControlController.shared.setFloatingControlVisible(visible, appModel: self)
+    }
+
+    func beginCaptureFromFloater() {
+        guard isEnabled else { return }
+        handleSessionBegan(source: .floater)
+    }
+
+    private func removeFloaterMouseUpMonitors() {
+        for m in floaterMouseUpMonitors {
+            NSEvent.removeMonitor(m)
+        }
+        floaterMouseUpMonitors.removeAll()
+    }
+
+    private func installFloaterMouseUpMonitors() {
+        removeFloaterMouseUpMonitors()
+        let mask: NSEvent.EventTypeMask = [.leftMouseUp, .rightMouseUp, .otherMouseUp]
+        if let g = NSEvent.addGlobalMonitorForEvents(matching: mask, handler: { [weak self] _ in
+            Task { @MainActor in self?.handleSessionFinalized(expectedSource: .floater) }
+        }) {
+            floaterMouseUpMonitors.append(g)
+        }
+        if let l = NSEvent.addLocalMonitorForEvents(matching: mask, handler: { [weak self] e in
+            Task { @MainActor in self?.handleSessionFinalized(expectedSource: .floater) }
+            return e
+        }) {
+            floaterMouseUpMonitors.append(l)
+        }
+    }
+
+    private func handleSessionBegan(source: CaptureSessionSource) {
         guard isEnabled else { return }
         guard sessionPhase == .idle else { return }
         guard microphoneAuthorized else {
             lastError = "Microphone not authorized"
             return
         }
+
+        activeSessionSource = source
 
         sessionBeganAt = Date()
         firstTranscriptAt = nil
@@ -125,6 +174,7 @@ final class AppModel: ObservableObject {
             lastError = error.localizedDescription
             sessionPhase = .idle
             OverlayController.shared.hide()
+            activeSessionSource = nil
             return
         }
 
@@ -148,7 +198,12 @@ final class AppModel: ObservableObject {
                 audio = nil
                 sessionPhase = .idle
                 OverlayController.shared.hide()
+                activeSessionSource = nil
             }
+        }
+
+        if source == .floater, sessionPhase == .listening {
+            installFloaterMouseUpMonitors()
         }
     }
 
@@ -173,8 +228,13 @@ final class AppModel: ObservableObject {
         }
     }
 
-    private func handleSessionFinalized() {
+    private func handleSessionFinalized(expectedSource: CaptureSessionSource) {
+        guard activeSessionSource == expectedSource else { return }
+        removeFloaterMouseUpMonitors()
+        guard !isCaptureFinalizing else { return }
         guard sessionPhase != .idle || audio != nil else { return }
+
+        isCaptureFinalizing = true
         finalizeStartedAt = Date()
 
         audio?.stop()
@@ -224,10 +284,17 @@ final class AppModel: ObservableObject {
     }
 
     private func finishInjection(english: String) {
-        let toInsert = english.trimmingCharacters(in: .whitespacesAndNewlines)
+        let langId = UserDefaults.standard.string(forKey: "translateFromLanguageId") ?? "es"
+        let nativeSnapshot = liveTranscript.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedParam = english.trimmingCharacters(in: .whitespacesAndNewlines)
+        let liveEngSnapshot = liveEnglish.trimmingCharacters(in: .whitespacesAndNewlines)
+        let englishForLog = trimmedParam.isEmpty ? liveEngSnapshot : trimmedParam
+
+        var injectionOK = true
+        let toInsert = trimmedParam
         if !toInsert.isEmpty {
-            let ok = TextInjector.insertAtFocusedElement(toInsert)
-            if !ok {
+            injectionOK = TextInjector.insertAtFocusedElement(toInsert)
+            if !injectionOK {
                 let err = "Could not insert text — enable Accessibility for WisperClone"
                 lastError = err
                 OverlayController.shared.update(
@@ -238,11 +305,28 @@ final class AppModel: ObservableObject {
                 )
             }
         }
+
+        if !nativeSnapshot.isEmpty || !englishForLog.isEmpty || lastError != nil {
+            let errCopy = lastError
+            transcriptItems.insert(
+                TranscriptItem(
+                    sourceLanguageId: langId,
+                    nativeText: nativeSnapshot,
+                    englishText: englishForLog,
+                    injectionOK: injectionOK,
+                    errorMessage: errCopy,
+                ),
+                at: 0,
+            )
+        }
+
         if let t0 = finalizeStartedAt {
             latencyLog.info("finalize_to_inject_ms=\(Int(Date().timeIntervalSince(t0) * 1000))")
         }
 
         sessionPhase = .idle
+        isCaptureFinalizing = false
+        activeSessionSource = nil
         liveTranscript = ""
         liveEnglish = ""
         OverlayController.shared.update(native: "", english: "", phase: .idle, error: nil)
@@ -252,6 +336,9 @@ final class AppModel: ObservableObject {
     }
 
     private func abortSession() async {
+        removeFloaterMouseUpMonitors()
+        isCaptureFinalizing = false
+        activeSessionSource = nil
         audio?.stop()
         audio = nil
         speechTranscriber?.cancel()

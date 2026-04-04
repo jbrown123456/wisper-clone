@@ -5,6 +5,7 @@
 
 # Xcode
 DerivedData/
+.derivedData/
 build/
 *.pbxuser
 !default.pbxuser
@@ -33,4 +34,8 @@ RunLocal/
 # Secrets (never commit)
 .env
 .env.*
+!.env.example
 *.pem
+
+# Python engine
+engine/.venv/

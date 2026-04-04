@@ -1,0 +1,11 @@
+Paste this into Cursor Agent when you want a fresh run of the Mac app:
+
+---
+Relaunch WisperClone: quit/kill any running WisperClone, rebuild Debug, and open the app so I see the latest code. Run this from the repo (use the absolute path if cwd differs):
+
+  "/Users/joeybrown/Desktop/Wisper Clone/WisperClone/scripts/run-debug.sh" --clean
+
+For a quicker incremental rebuild (no clean), omit --clean.
+
+If something is stuck (weird cache / signing), use --purge instead of --clean.
+---

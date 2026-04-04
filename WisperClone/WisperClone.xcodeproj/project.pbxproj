@@ -27,6 +27,8 @@
 		7A1EBF010000000000000012 /* DesktopRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000002 /* DesktopRootView.swift */; };
 		7A1EBF010000000000000013 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000003 /* HomeView.swift */; };
 		7A1EBF010000000000000014 /* DesktopSectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000004 /* DesktopSectionViews.swift */; };
+		7A1EBF010000000000000015 /* FloatingControlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000005 /* FloatingControlController.swift */; };
+		7A1EBF010000000000000016 /* TranscriptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000006 /* TranscriptHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		7A1ER0030000000000000002 /* DesktopRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopRootView.swift; sourceTree = "<group>"; };
 		7A1ER0030000000000000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7A1ER0030000000000000004 /* DesktopSectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopSectionViews.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000005 /* FloatingControlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingControlController.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000006 /* TranscriptHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				7A1ER0010000000000000001 /* WisperCloneApp.swift */,
 				7A1ER0030000000000000002 /* DesktopRootView.swift */,
 				7A1ER0030000000000000004 /* DesktopSectionViews.swift */,
+				7A1ER0030000000000000005 /* FloatingControlController.swift */,
+				7A1ER0030000000000000006 /* TranscriptHistoryView.swift */,
 				7A1ER0030000000000000003 /* HomeView.swift */,
 				7A1ER0030000000000000001 /* SidebarModels.swift */,
 				7A1ER0020000000000000001 /* AppModel.swift */,
@@ -117,6 +123,7 @@
 				7A1ESP010000000000000001 /* Sources */,
 				7A1EFW010000000000000001 /* Frameworks */,
 				7A1ERP010000000000000001 /* Resources */,
+				7A1ESH010000000000000001 /* Strip xattrs before code sign */,
 			);
 			buildRules = (
 			);
@@ -171,6 +178,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7A1ESH010000000000000001 /* Strip xattrs before code sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Strip xattrs before code sign";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xattr -cr \"${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}\" 2>/dev/null || true\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7A1ESP010000000000000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -179,6 +208,8 @@
 				7A1EBF010000000000000003 /* AppModel.swift in Sources */,
 				7A1EBF010000000000000004 /* AudioCaptureService.swift in Sources */,
 				7A1EBF010000000000000014 /* DesktopSectionViews.swift in Sources */,
+				7A1EBF010000000000000015 /* FloatingControlController.swift in Sources */,
+				7A1EBF010000000000000016 /* TranscriptHistoryView.swift in Sources */,
 				7A1EBF010000000000000012 /* DesktopRootView.swift in Sources */,
 				7A1EBF010000000000000005 /* HotkeyMonitor.swift in Sources */,
 				7A1EBF010000000000000013 /* HomeView.swift in Sources */,

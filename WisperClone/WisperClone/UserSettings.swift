@@ -47,4 +47,13 @@ final class UserSettings {
         }
         set { defaults.set(newValue, forKey: "partial_max_tokens") }
     }
+
+    /// Floating on-screen dictation control (WhisperFlow-style pill).
+    var showFloatingControl: Bool {
+        get {
+            if defaults.object(forKey: "show_floating_control") == nil { return true }
+            return defaults.bool(forKey: "show_floating_control")
+        }
+        set { defaults.set(newValue, forKey: "show_floating_control") }
+    }
 }
