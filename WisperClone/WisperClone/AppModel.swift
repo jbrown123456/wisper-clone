@@ -295,7 +295,7 @@ final class AppModel: ObservableObject {
         if !toInsert.isEmpty {
             injectionOK = TextInjector.insertAtFocusedElement(toInsert)
             if !injectionOK {
-                let err = "Could not insert text — enable Accessibility for WisperClone"
+                let err = "Could not insert text — enable Accessibility for \(Brand.displayName)"
                 lastError = err
                 OverlayController.shared.update(
                     native: liveTranscript,
@@ -378,8 +378,8 @@ final class AppModel: ObservableObject {
     }
 
     func runInjectionSelfTest() {
-        let ok = TextInjector.insertAtFocusedElement("[Wisper test injection]\n")
-        lastError = ok ? nil : "Injection failed — enable Accessibility for WisperClone"
+        let ok = TextInjector.insertAtFocusedElement("[\(Brand.displayName) test injection]\n")
+        lastError = ok ? nil : "Injection failed — enable Accessibility for \(Brand.displayName)"
     }
 
     /// Step 9: isolated streaming client check (fixed Spanish prompt → English rewrite in overlay).

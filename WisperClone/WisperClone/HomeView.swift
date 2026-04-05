@@ -46,7 +46,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("Welcome back")
                         .font(.title2.weight(.semibold))
-                    Text("Think in your language. Ship in clear English.")
+                    Text(Brand.tagline)
                         .foregroundStyle(.secondary)
                 }
                 Spacer()

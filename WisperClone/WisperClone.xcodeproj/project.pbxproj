@@ -29,6 +29,7 @@
 		7A1EBF010000000000000014 /* DesktopSectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000004 /* DesktopSectionViews.swift */; };
 		7A1EBF010000000000000015 /* FloatingControlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000005 /* FloatingControlController.swift */; };
 		7A1EBF010000000000000016 /* TranscriptHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000006 /* TranscriptHistoryView.swift */; };
+		7A1EBF010000000000000017 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1ER0030000000000000007 /* Brand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		7A1ER0030000000000000004 /* DesktopSectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopSectionViews.swift; sourceTree = "<group>"; };
 		7A1ER0030000000000000005 /* FloatingControlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingControlController.swift; sourceTree = "<group>"; };
 		7A1ER0030000000000000006 /* TranscriptHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptHistoryView.swift; sourceTree = "<group>"; };
+		7A1ER0030000000000000007 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				7A1ER0010000000000000001 /* WisperCloneApp.swift */,
+				7A1ER0030000000000000007 /* Brand.swift */,
 				7A1ER0030000000000000002 /* DesktopRootView.swift */,
 				7A1ER0030000000000000004 /* DesktopSectionViews.swift */,
 				7A1ER0030000000000000005 /* FloatingControlController.swift */,
@@ -226,6 +229,7 @@
 				7A1EBF01000000000000000F /* UserSettings.swift in Sources */,
 				7A1EBF010000000000000010 /* WhisperCLI.swift in Sources */,
 				7A1EBF010000000000000001 /* WisperCloneApp.swift in Sources */,
+				7A1EBF010000000000000017 /* Brand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +293,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Wisper;
+				INFOPLIST_KEY_CFBundleDisplayName = Klari;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WisperClone captures your voice to transcribe and rewrite it in English.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "WisperClone uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Klari captures your voice to transcribe and rewrite it in English.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Klari uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -316,10 +320,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Wisper;
+				INFOPLIST_KEY_CFBundleDisplayName = Klari;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "WisperClone captures your voice to transcribe and rewrite it in English.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "WisperClone uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Klari captures your voice to transcribe and rewrite it in English.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Klari uses speech recognition for live Spanish transcription when whisper.cpp is not enabled.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

@@ -118,7 +118,7 @@ private struct FloatingControlRootView: View {
     private var title: String {
         if !appModel.isEnabled { return "Paused" }
         switch appModel.sessionPhase {
-        case .idle: return "Flow"
+        case .idle: return Brand.displayName
         case .listening: return "Listening"
         case .processing: return "Processing"
         case .outputting: return "Writing"

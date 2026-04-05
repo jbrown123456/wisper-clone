@@ -31,10 +31,10 @@ struct DesktopRootView: View {
                             )
                             .frame(width: 28, height: 28)
                             .overlay(Image(systemName: "waveform").font(.system(size: 13, weight: .bold)).foregroundStyle(.white))
-                        Text("Flow")
+                        Text(Brand.displayName)
                             .font(.title3.weight(.semibold))
                         Spacer()
-                        Text("Basic")
+                        Text(Brand.editionLabel)
                             .font(.caption.weight(.semibold))
                             .padding(.horizontal, 8)
                             .padding(.vertical, 3)
@@ -62,7 +62,7 @@ struct DesktopRootView: View {
                     .listStyle(.sidebar)
 
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Try Flow Pro")
+                        Text("Try \(Brand.displayName) Pro")
                             .font(.subheadline.weight(.semibold))
                         Text("Unlimited words, smarter formatting, and team features.")
                             .font(.caption)

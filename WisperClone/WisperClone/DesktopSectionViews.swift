@@ -167,7 +167,7 @@ struct DesktopSettingsView: View {
                 Text("Settings")
                     .font(.largeTitle.weight(.bold))
 
-                Text("Voice, API, and advanced transcription options from the earlier Wisper build.")
+                Text("Voice capture, API keys, and local transcription options.")
                     .foregroundStyle(.secondary)
 
                 GroupBox("Capture & shortcuts") {
@@ -201,12 +201,12 @@ struct DesktopSettingsView: View {
                 GroupBox("OpenAI rewrite") {
                     VStack(alignment: .leading, spacing: 10) {
                         TextField("API base URL", text: $baseURL)
-                        Text("Use https://api.openai.com/v1 for OpenAI, or your Wisper engine (e.g. http://127.0.0.1:8765/v1).")
+                        Text("Use https://api.openai.com/v1 for OpenAI, or your local engine (e.g. http://127.0.0.1:8765/v1).")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         TextField("Model", text: $openaiModel)
                         SecureField("OpenAI API key or engine token (Keychain)", text: $apiKeyDraft)
-                        Text("Direct OpenAI: paste an OpenAI API key. Wisper engine: paste WISPER_ENGINE_TOKEN from the server.")
+                        Text("Direct OpenAI: paste an OpenAI API key. Local engine: paste WISPER_ENGINE_TOKEN from the server.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         TextField("Orchestrator debounce (ms)", text: $debounceMs)

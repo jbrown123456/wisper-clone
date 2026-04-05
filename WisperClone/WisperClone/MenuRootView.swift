@@ -72,7 +72,7 @@ struct SettingsSheet: View {
             Toggle("Use whisper.cpp CLI (otherwise Apple Speech, Spanish)", isOn: $useWhisper)
 
             TextField("API base URL", text: $baseURL)
-            Text("OpenAI: https://api.openai.com/v1 — Wisper engine: http://127.0.0.1:8765/v1 (see engine/README.md).")
+            Text("OpenAI: https://api.openai.com/v1 — local engine: http://127.0.0.1:8765/v1 (see engine/README.md).")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

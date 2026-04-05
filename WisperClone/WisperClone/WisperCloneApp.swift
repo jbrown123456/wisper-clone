@@ -2,9 +2,9 @@ import AppKit
 import SwiftUI
 
 enum AppTheme {
-    static let accent = Color(hex: 0x7C5CFF)
-    static let accentSoft = Color(hex: 0xB8A7FF)
-    static let accentTint = Color(hex: 0xEFEAFF)
+    static let accent = Color(hex: 0x0F766E)
+    static let accentSoft = Color(hex: 0x2DD4BF)
+    static let accentTint = Color(hex: 0xCCFBF1)
     static let cardBorder = Color.white.opacity(0.5)
 }
 
